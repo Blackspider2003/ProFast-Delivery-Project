@@ -1,8 +1,30 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React, { use } from 'react';
+import { Link, NavLink } from 'react-router';
 import Logo from '../ProFastLogo/Logo';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+  const {user, logOut} = use(AuthContext);
+  console.log(user);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // const handleDeleteToast = () => {
+        toast.warn("User have Loged Out", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        // }
+      })
+      .catch(() => {});
+  };
                 return (
                                 <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -26,7 +48,27 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <img
+              className="bg-green-200 rounded-full p-1"
+              src={user && user.photoURL}
+              alt=""
+            />
+          {user ? (
+            <button onClick={handleLogOut} className="btn">
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          )}
+          {user ? (
+            ""
+          ) : (
+            <Link to="/register" className="btn">
+              Register
+            </Link>
+          )}
   </div>
 </div>
                 );
