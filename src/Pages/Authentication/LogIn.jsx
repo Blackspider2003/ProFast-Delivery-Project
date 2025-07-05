@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Logo from "../../SharedComponents/ProFastLogo/Logo";
 
 const LogIn = () => {
   const [error, setError] = useState("");
@@ -71,6 +72,7 @@ const LogIn = () => {
   };
 
   return (
+    <><Logo></Logo>
       <div className="min-h-screen lg:mb-10 md:mb-7 mb-5 flex items-center justify-center rounded-2xl">
         <div className="bg-white shadow-md rounded-xl p-8 w-full max-w-md">
           <h2 className="text-2xl font-semibold text-center text-gray-800">
@@ -159,6 +161,7 @@ const LogIn = () => {
           </p>
         </div>
       </div>
+      </>
   );
 };
 
