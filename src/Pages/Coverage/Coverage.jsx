@@ -6,6 +6,8 @@ import L from "leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import Navbar from "../../SharedComponents/Navbar/Navbar";
+import Footer from "../../SharedComponents/Footer/Footer";
 
 // Fix Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -47,6 +49,8 @@ const Coverage = () => {
   };
 
   return (
+    <>
+    <Navbar></Navbar>
     <div className="p-4 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-4 text-primary">
         We are available in 64 Districts
@@ -98,6 +102,8 @@ const Coverage = () => {
         </MapContainer>
       </div>
     </div>
+    <Footer></Footer>
+    </>
   );
 };
 

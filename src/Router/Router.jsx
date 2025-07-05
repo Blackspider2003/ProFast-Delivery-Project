@@ -6,6 +6,8 @@ import AuthLayout from "../Layouts/AuthLayout";
 import LogIn from "../Pages/Authentication/LogIn";
 import Register from "../Pages/Authentication/Register";
 import Coverage from "../Pages/Coverage/Coverage";
+import AddParcel from "../Pages/AddParcel/AddParcel";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ export const router = createBrowserRouter([
                 { 
                                 path: '/about-us',
                                 element: <AboutUs></AboutUs>,
+                },
+                { 
+                                path: '/add-parcel',
+                                element: <PrivateRoute>
+                                  <AddParcel></AddParcel>
+                                </PrivateRoute>,
+                                loader: () => fetch ('../../public/warehouses.json')
+                                
                 },
     ]
   },

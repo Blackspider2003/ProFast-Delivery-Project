@@ -58,6 +58,9 @@ const Navbar = () => {
             <li>
               <NavLink to="/coverage">Coverage</NavLink>
             </li>
+            <li>
+              <NavLink to="/add-parcel">Send A Parcel</NavLink>
+            </li>
           </ul>
         </div>
         <NavLink to="/">
@@ -75,6 +78,9 @@ const Navbar = () => {
           <li>
             <NavLink to="/coverage">Coverage</NavLink>
           </li>
+          <li>
+              <NavLink to="/add-parcel">Send A Parcel</NavLink>
+            </li>
         </ul>
       </div>
       <div className="navbar-end">
